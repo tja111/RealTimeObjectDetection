@@ -4,16 +4,23 @@ A beginner-friendly project for implementing real-time object detection using Te
 
 ## 🚀 Quick Start
 
-### New to this project? Start here:
+### 👋 New to this project? Start here:
 
-1. **[Setup Guide](SETUP.md)** - Complete step-by-step instructions for setting up your environment
+1. **[Getting Started Guide](GETTING_STARTED.md)** - Complete beginner's roadmap (START HERE!)
+2. **[Setup Guide](SETUP.md)** - Detailed step-by-step environment setup instructions
    - ✅ Windows 11 + WSL2 + NVIDIA GPU support
    - ✅ Cleanup instructions for existing installations
    - ✅ Beginner-friendly with detailed explanations
    - ✅ Troubleshooting tips included
+3. **[FAQ](FAQ.md)** - Answers to common questions and issues
+4. **[Workflow Guide](WORKFLOW.md)** - Complete project workflow with visual diagrams
 
 2. **Install Dependencies** - After completing the setup guide:
    ```bash
+   # Clone this repository
+   git clone https://github.com/tja111/RealTimeObjectDetection.git
+   cd RealTimeObjectDetection
+   
    # Activate your virtual environment first!
    source ~/tf_object_detection/bin/activate  # or conda activate tf_obj_detect
    
@@ -21,7 +28,12 @@ A beginner-friendly project for implementing real-time object detection using Te
    pip install -r requirements.txt
    ```
 
-3. **Run the Tutorial** - Learn by doing:
+3. **Verify Installation** - Make sure everything works:
+   ```bash
+   python verify_installation.py
+   ```
+
+4. **Run the Tutorial** - Learn by doing:
    ```bash
    jupyter notebook Tutorial.ipynb
    ```
@@ -62,8 +74,12 @@ RealTimeObjectDetection/
 ## 📚 Learning Resources
 
 ### Included in This Repository
-- **Tutorial.ipynb**: Interactive notebook with complete workflow
-- **SETUP.md**: Detailed environment setup instructions
+- **[GETTING_STARTED.md](GETTING_STARTED.md)**: Complete beginner's roadmap
+- **[SETUP.md](SETUP.md)**: Detailed environment setup instructions
+- **[Tutorial.ipynb](Tutorial.ipynb)**: Interactive notebook with complete workflow
+- **[FAQ.md](FAQ.md)**: Frequently asked questions and troubleshooting
+- **[WORKFLOW.md](WORKFLOW.md)**: Visual workflow guide with diagrams
+- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)**: Quick command reference
 
 ### External Resources
 - [TensorFlow Object Detection API Documentation](https://tensorflow-object-detection-api-tutorial.readthedocs.io/)
@@ -73,9 +89,14 @@ RealTimeObjectDetection/
 ## 🆘 Getting Help
 
 1. **Setup Issues**: Check the [Troubleshooting section](SETUP.md#troubleshooting) in SETUP.md
-2. **TensorFlow Issues**: See [TensorFlow GPU Support Guide](https://www.tensorflow.org/install/gpu)
-3. **WSL2 Issues**: Check [WSL2 CUDA Guide](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
-4. **General Questions**: Open an issue on GitHub
+2. **Common Questions**: See [FAQ.md](FAQ.md) for answers
+3. **Quick Commands**: Reference [QUICK_REFERENCE.md](QUICK_REFERENCE.md)
+4. **TensorFlow Issues**: See [TensorFlow GPU Support Guide](https://www.tensorflow.org/install/gpu)
+5. **WSL2 Issues**: Check [WSL2 CUDA Guide](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
+6. **General Questions**: Open an issue on GitHub with:
+   - Your OS and GPU details
+   - Output of `verify_installation.py`
+   - Error messages and steps to reproduce
 
 ## ⚠️ Important Notes
 
@@ -103,4 +124,8 @@ This project is provided as-is for educational purposes.
 
 ---
 
-**Ready to get started?** Head over to [SETUP.md](SETUP.md) and begin your journey into real-time object detection! 🚀
+**Ready to get started?** 
+
+👉 Head over to [GETTING_STARTED.md](GETTING_STARTED.md) for a complete beginner's roadmap!
+
+🚀 Already set up? Jump straight to [Tutorial.ipynb](Tutorial.ipynb) to start training!
