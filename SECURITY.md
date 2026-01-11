@@ -1,10 +1,38 @@
 # Security Advisory
 
-## ⚠️ CRITICAL: Known Vulnerabilities in Pinned Versions
+## ✅ UPDATED: Using Secure Versions
 
-This project currently pins TensorFlow 2.3.1 and OpenCV 4.4.0.46, which contain **multiple known security vulnerabilities**.
+**As of the latest update, this project now uses patched, secure versions by default:**
+- TensorFlow 2.12.1 (all 150+ CVEs fixed)
+- OpenCV 4.8.1.78 (CVE-2023-4863 fixed)
+
+The legacy vulnerable versions (TensorFlow 2.3.1, OpenCV 4.4.0.46) are still documented below for users following older tutorials.
+
+## 🔒 Current Configuration (DEFAULT - SECURE)
+
+This project now uses secure, patched versions by default:
+
+```bash
+# Install current default versions (SECURE)
+pip install -r requirements.txt
+
+# This will install:
+# - tensorflow==2.12.1 (all CVEs patched)
+# - opencv-python==4.8.1.78 (CVE-2023-4863 patched)
+```
+
+**Requirements:**
+- Python 3.8-3.11 (not 3.7)
+- CUDA 11.8 or later (if using GPU)
+- cuDNN 8.6 or later (if using GPU)
+
+---
+
+## ⚠️ Legacy Versions (FOR COMPATIBILITY WITH OLD TUTORIALS)
 
 ### Vulnerability Summary
+
+If you need to use the older versions for compatibility with existing tutorials:
 
 #### TensorFlow 2.3.1
 - **150+ known CVEs** affecting version 2.3.1
@@ -23,27 +51,19 @@ This project currently pins TensorFlow 2.3.1 and OpenCV 4.4.0.46, which contain 
 
 ---
 
-## 🔒 Recommended Actions
+## 🔄 Using Legacy Versions (If Needed)
 
-### For New Projects (RECOMMENDED)
+### For New Projects (RECOMMENDED - Already Default)
 
-**Use updated, secure versions:**
+The secure versions are now the default. Just use:
 
 ```bash
-# Install secure versions
-pip install tensorflow>=2.12.1
-pip install opencv-python>=4.8.1.78
+pip install -r requirements.txt
 ```
 
-⚠️ **Note**: Upgrading to TensorFlow 2.12+ requires:
-- Python 3.8-3.11 (not 3.7)
-- CUDA 11.8 or later (not 11.2)
-- cuDNN 8.6 or later (not 8.1)
-- Code changes may be required
+### For Legacy/Educational Projects with Old Tutorials
 
-### For Legacy/Educational Projects
-
-If you **must** use TensorFlow 2.3.1 for compatibility with existing tutorials or code:
+If you **must** use TensorFlow 2.3.1 for compatibility, see the commented section in `requirements.txt`:
 
 1. **Understand the risks**:
    - These versions have known security vulnerabilities
@@ -103,156 +123,6 @@ If you **must** use TensorFlow 2.3.1 for compatibility with existing tutorials o
 
 ---
 
-## 🔄 Migration Guide to Secure Versions
-
-### Step 1: Update System Requirements
-
-```bash
-# Check Python version (need 3.8-3.11)
-python --version
-
-# If needed, install Python 3.9
-sudo apt install python3.9 python3.9-venv python3.9-dev
-```
-
-### Step 2: Update CUDA/cuDNN
-
-For TensorFlow 2.12+:
-- CUDA 11.8 or 12.0
-- cuDNN 8.6 or later
-
-### Step 3: Create New Environment
-
-```bash
-# Create fresh environment
-python3.9 -m venv tf_secure
-source tf_secure/bin/activate
-
-# Install secure versions
-pip install --upgrade pip
-pip install tensorflow>=2.12.1
-pip install opencv-python>=4.8.1.78
-```
-
-### Step 4: Update Code (if needed)
-
-TensorFlow 2.x API changes:
-- Most TF 2.3 code works in TF 2.12+
-- Check deprecated APIs: https://www.tensorflow.org/guide/migrate
-- Test thoroughly before deployment
-
-### Step 5: Verify
-
-```python
-import tensorflow as tf
-import cv2
-
-print(f"TensorFlow: {tf.__version__}")  # Should be >= 2.12.1
-print(f"OpenCV: {cv2.__version__}")      # Should be >= 4.8.1.78
-print(f"GPU Available: {len(tf.config.list_physical_devices('GPU')) > 0}")
-```
-
----
-
-## 🎓 Educational Use vs Production Use
-
-### For Learning/Tutorial Following
-
-If you're following the original tutorial that requires TensorFlow 2.3.1:
-
-✅ **Acceptable** if:
-- Used only for learning on local machine
-- Not processing sensitive data
-- Not exposed to network
-- Running in isolated environment (WSL2, VM, container)
-
-⚠️ **Add this warning to your setup:**
-```bash
-cat << 'EOF' > ~/SECURITY_WARNING.txt
-WARNING: This environment uses TensorFlow 2.3.1 and OpenCV 4.4.0.46
-which contain known security vulnerabilities.
-
-Use ONLY for educational purposes in isolated environments.
-
-DO NOT:
-- Process untrusted input
-- Use in production
-- Expose to network
-- Process sensitive data
-
-For production use, upgrade to:
-- TensorFlow >= 2.12.1
-- OpenCV >= 4.8.1.78
-EOF
-
-cat ~/SECURITY_WARNING.txt
-```
-
-### For Production/Real-World Projects
-
-❌ **NOT ACCEPTABLE** - Must upgrade to secure versions
-
----
-
-## 🛡️ Security Best Practices
-
-### Regardless of Version
-
-1. **Isolation**
-   - Run in containers or VMs
-   - Use WSL2 on Windows (provides sandbox)
-   - Never run as root/administrator
-
-2. **Input Validation**
-   - Validate all input data
-   - Sanitize file uploads
-   - Limit file sizes
-
-3. **Network Security**
-   - Use firewalls
-   - Don't expose ML services directly to internet
-   - Use authentication and authorization
-
-4. **Monitoring**
-   - Log all operations
-   - Monitor for unusual activity
-   - Keep systems updated
-
-5. **Data Protection**
-   - Encrypt sensitive data
-   - Use secure storage
-   - Follow data protection regulations
-
----
-
-## 📞 Questions?
-
-### "Should I use the vulnerable versions?"
-
-**For learning/tutorials**: Yes, with precautions
-**For production**: NO - upgrade required
-
-### "How risky is it really?"
-
-**Risk level depends on use case:**
-- **Low risk**: Local learning, no network, no sensitive data
-- **Medium risk**: Processing public datasets, isolated network
-- **HIGH risk**: Production use, processing user data, network-exposed
-- **CRITICAL risk**: Processing untrusted input, sensitive data
-
-### "What about the TensorFlow Object Detection API?"
-
-The Object Detection API is compatible with TensorFlow 2.12+. 
-You can use secure versions without compatibility issues.
-
-### "I'm stuck on TF 2.3.1 for compatibility"
-
-Options:
-1. Update code to work with TF 2.12+ (recommended)
-2. Use containers to isolate vulnerable code
-3. Consider alternative frameworks (PyTorch, ONNX)
-4. Consult with security team about acceptable risk
-
 ---
 
 ## 📚 Additional Resources
@@ -266,15 +136,17 @@ Options:
 
 ## ✅ Conclusion
 
-**This project's pinned versions contain vulnerabilities. Choose your path:**
+**This project now uses secure versions by default:**
 
-1. **🔒 Secure Path** (Recommended)
-   - Use TensorFlow 2.12.1+ and OpenCV 4.8.1.78+
-   - Update CUDA/cuDNN accordingly
+1. **🔒 Default Configuration** (Current)
+   - TensorFlow 2.12.1 (all CVEs patched)
+   - OpenCV 4.8.1.78 (CVE-2023-4863 patched)
    - Suitable for all use cases including production
+   - Python 3.8-3.11 required
 
-2. **📚 Learning Path** (Acceptable with precautions)
-   - Use TensorFlow 2.3.1 and OpenCV 4.4.0.46 as documented
+2. **📚 Legacy Configuration** (Optional - for old tutorials)
+   - TensorFlow 2.3.1 and OpenCV 4.4.0.46
+   - Contains known vulnerabilities - see comments in requirements.txt
    - Only for educational purposes
    - Isolated environment required
    - Never use in production

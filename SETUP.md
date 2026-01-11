@@ -6,15 +6,20 @@ This guide will walk you through setting up your development environment for rea
 
 ---
 
-## ⚠️ SECURITY NOTICE
+## ⚠️ IMPORTANT: VERSION UPDATE
 
-**The versions specified in this guide (TensorFlow 2.3.1, OpenCV 4.4.0.46) contain known security vulnerabilities.**
+**This project now uses secure, patched versions by default:**
+- **TensorFlow 2.12.1** (all 150+ CVEs patched)
+- **OpenCV 4.8.1.78** (CVE-2023-4863 patched)
+- **Python 3.8-3.11 required** (3.9 or 3.10 recommended)
 
-- **For educational/tutorial use**: Follow this guide for compatibility with the existing tutorial
-- **For production use**: See [SECURITY.md](SECURITY.md) for secure versions (TensorFlow 2.12.1+, OpenCV 4.8.1.78+)
-- **Risk mitigation**: Use only in isolated environments (WSL2 provides sandboxing), never process untrusted input
+**This setup guide is being updated. For now:**
+- The `requirements.txt` file has been updated to use secure versions
+- Follow this guide for environment setup, but note version differences
+- Use `pip install -r requirements.txt` to install the secure versions
+- For legacy versions (TensorFlow 2.3.1) needed for old tutorials, see comments in `requirements.txt` and [SECURITY.md](SECURITY.md)
 
-**Read [SECURITY.md](SECURITY.md) before proceeding to understand the risks and alternatives.**
+**Read [SECURITY.md](SECURITY.md) for complete information about versions and security.**
 
 ---
 

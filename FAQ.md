@@ -65,7 +65,10 @@ OpenCV 4.4.0.46 has:
 **A:** The setup works for any NVIDIA GPU with compute capability 3.5 or higher. Check your GPU's compute capability at [NVIDIA's website](https://developer.nvidia.com/cuda-gpus).
 
 ### Q: Can I use a different Python version?
-**A:** TensorFlow 2.3.1 supports Python 3.5-3.8. Using Python 3.9+ may cause compatibility issues. Stick to Python 3.7 or 3.8 for best results.
+**A:** 
+- **For current secure versions (TensorFlow 2.12.1)**: Python 3.8-3.11 is supported. Python 3.9 or 3.10 is recommended.
+- **For legacy versions (TensorFlow 2.3.1)**: Python 3.5-3.8 is supported. Python 3.7 or 3.8 recommended. Using Python 3.9+ with TensorFlow 2.3.1 will cause compatibility issues.
+- See `SECURITY.md` for more information about version choices.
 
 ---
 
@@ -235,28 +238,32 @@ Benefits of WSL2:
 ### Q: Which versions work together?
 **A:** Tested combinations:
 
-**Option 1 (Original):**
-- Python 3.7.4
-- TensorFlow 2.3.1
-- CUDA 10.1
-- cuDNN 7.6.5
-- OpenCV 4.4.0
+**Option 1 (Current - SECURE, RECOMMENDED):**
+- Python 3.9 or 3.10
+- TensorFlow 2.12.1
+- CUDA 11.8 or 12.0
+- cuDNN 8.6+
+- OpenCV 4.8.1.78
+- **All known vulnerabilities patched**
 
-**Option 2 (Recommended for WSL2):**
+**Option 2 (Legacy - For old tutorials, contains vulnerabilities):**
 - Python 3.8.x
 - TensorFlow 2.3.1
 - CUDA 11.2
 - cuDNN 8.1.0
 - OpenCV 4.4.0
+- **⚠️ Contains 150+ known CVEs - see SECURITY.md**
+
+**Option 3 (Original - Not recommended):**
+- Python 3.7.4
+- TensorFlow 2.3.1
+- CUDA 10.1
+- cuDNN 7.6.5
+- OpenCV 4.4.0
+- **⚠️ Contains 150+ known CVEs - see SECURITY.md**
 
 ### Q: Can I use newer versions of TensorFlow?
-**A:** Yes, but you may need to update:
-- CUDA version (TensorFlow 2.10+ needs CUDA 11.2+)
-- cuDNN version
-- Python version
-- Code changes may be needed
-
-Check [TensorFlow GPU support](https://www.tensorflow.org/install/source#gpu) for version compatibility.
+**A:** Yes! This project now uses TensorFlow 2.12.1 by default, which includes all security patches. The requirements.txt has been updated to use secure versions. If you need the old versions for compatibility with older tutorials, see the comments in requirements.txt and SECURITY.md.
 
 ---
 

@@ -42,9 +42,11 @@ A beginner-friendly project for implementing real-time object detection using Te
 
 - **Operating System**: Windows 11 with WSL2 (Ubuntu) or native Ubuntu/Linux
 - **GPU**: NVIDIA GPU (e.g., RTX series) - optional but recommended
-- **Python**: 3.7 or 3.8
+- **Python**: 3.8, 3.9, 3.10, or 3.11 (3.9 recommended)
 - **Storage**: At least 10GB free space for models and dependencies
 - **Time**: About 1-2 hours for complete setup
+
+**Note**: For the current secure versions (TensorFlow 2.12.1+), Python 3.8-3.11 is required. If following older tutorials with TensorFlow 2.3.1, see `SECURITY.md` for legacy version information.
 
 ## 📁 Project Structure
 
