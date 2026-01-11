@@ -85,8 +85,11 @@ source ~/.bashrc
 # Check if GPU is visible to system
 nvidia-smi
 
-# Reinstall TensorFlow with GPU support
-pip install --upgrade --force-reinstall tensorflow==2.3.1
+# Reinstall TensorFlow with GPU support (secure version)
+pip install --upgrade --force-reinstall tensorflow==2.12.1
+
+# For legacy version (if needed for old tutorials):
+# pip install --upgrade --force-reinstall tensorflow==2.3.1
 ```
 
 ### Module not found

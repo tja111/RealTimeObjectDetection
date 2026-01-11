@@ -193,15 +193,20 @@ source tf_object_detection/bin/activate
 # Upgrade pip in virtual environment
 pip install --upgrade pip
 
-# Install TensorFlow with GPU support
-pip install tensorflow==2.3.1
+# OPTION 1 (RECOMMENDED): Install from requirements.txt (secure versions)
+# Navigate to the cloned repository first
+# cd ~/RealTimeObjectDetection
+# pip install -r requirements.txt
 
-# Install OpenCV (NOTE: Fixed typo from original instructions)
-pip install opencv-python==4.4.0.46
-
-# Install other common dependencies
-pip install numpy matplotlib pillow lxml jupyter
+# OPTION 2 (LEGACY): Manual installation for old tutorials
+# ⚠️ WARNING: These versions contain 150+ known CVEs - see SECURITY.md
+# Only use in isolated educational environments
+# pip install tensorflow==2.3.1
+# pip install opencv-python==4.4.0.46
+# pip install numpy matplotlib pillow lxml jupyter
 ```
+
+**Note**: The instructions below show the legacy manual installation for reference. For new setups, use `pip install -r requirements.txt` from the cloned repository to install secure versions automatically.
 
 ### Step 7: Install TensorFlow Object Detection API
 

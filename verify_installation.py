@@ -29,8 +29,14 @@ def check_python_version():
     major, minor = sys.version_info[:2]
     print(f"Python version: {version}")
     
-    is_valid = (3, 7) <= (major, minor) <= (3, 8)
-    print_status("Python 3.7-3.8", is_valid)
+    # Check for secure version requirements (TensorFlow 2.12.1)
+    is_valid = (3, 8) <= (major, minor) <= (3, 11)
+    print_status("Python 3.8-3.11 (for TensorFlow 2.12.1+)", is_valid)
+    
+    # Also show if legacy version would work
+    if (3, 7) <= (major, minor) <= (3, 8):
+        print("  ℹ️  Python 3.7-3.8 compatible with legacy TensorFlow 2.3.1")
+    
     return is_valid
 
 def check_tensorflow():
