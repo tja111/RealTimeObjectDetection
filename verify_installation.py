@@ -29,8 +29,8 @@ def check_python_version():
     major, minor = sys.version_info[:2]
     print(f"Python version: {version}")
     
-    is_valid = (3, 7) <= (major, minor) <= (3, 9)
-    print_status("Python 3.7-3.9", is_valid)
+    is_valid = (3, 7) <= (major, minor) <= (3, 8)
+    print_status("Python 3.7-3.8", is_valid)
     return is_valid
 
 def check_tensorflow():

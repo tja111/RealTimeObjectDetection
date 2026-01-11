@@ -41,11 +41,21 @@ echo "✅ OpenCV removed"
 
 # Step 3: Remove CUDA packages (apt)
 echo "🧹 Removing CUDA packages..."
-sudo apt-get --purge remove "*cuda*" "*cublas*" "*cufft*" "*cufile*" "*curand*" "*cusolver*" "*cusparse*" "*gds-tools*" "*npp*" "*nvjpeg*" "nsight*" "*nvvm*" -y 2>/dev/null
-sudo apt-get --purge remove "*nvidia*" -y 2>/dev/null
-sudo apt-get autoremove -y
-sudo apt-get autoclean -y
-echo "✅ CUDA packages removed"
+echo "⚠️  This will remove packages matching CUDA patterns..."
+echo "Packages to be removed:"
+apt list --installed 2>/dev/null | grep -E "cuda|cublas|cufft|nvidia" | head -10
+echo ""
+read -p "Proceed with CUDA package removal? (yes/no): " confirm_cuda
+
+if [ "$confirm_cuda" = "yes" ]; then
+    sudo apt-get --purge remove "*cuda*" "*cublas*" "*cufft*" "*cufile*" "*curand*" "*cusolver*" "*cusparse*" "*gds-tools*" "*npp*" "*nvjpeg*" "nsight*" "*nvvm*" -y 2>/dev/null
+    sudo apt-get --purge remove "*nvidia*" -y 2>/dev/null
+    sudo apt-get autoremove -y
+    sudo apt-get autoclean -y
+    echo "✅ CUDA packages removed"
+else
+    echo "ℹ️  Skipped CUDA package removal"
+fi
 
 # Step 4: Remove CUDA directories
 echo "🧹 Removing CUDA directories..."

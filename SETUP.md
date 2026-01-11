@@ -123,7 +123,12 @@ source ~/.bashrc
 # After downloading, copy the file to WSL2 (assuming it's in your Downloads folder):
 # From WSL2 terminal:
 cd ~
+# Replace YOUR_USERNAME with your actual Windows username
+# You can also use: echo $USER to see your WSL username
 cp /mnt/c/Users/YOUR_USERNAME/Downloads/cudnn-11.2-linux-x64-v8.1.0.77.tgz .
+
+# If you're unsure of your username, list the Users directory:
+# ls /mnt/c/Users/
 
 # Extract and install
 tar -xzvf cudnn-11.2-linux-x64-v8.1.0.77.tgz
