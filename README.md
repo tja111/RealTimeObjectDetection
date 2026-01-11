@@ -88,22 +88,25 @@ RealTimeObjectDetection/
 
 ## 🆘 Getting Help
 
-1. **Setup Issues**: Check the [Troubleshooting section](SETUP.md#troubleshooting) in SETUP.md
-2. **Common Questions**: See [FAQ.md](FAQ.md) for answers
-3. **Quick Commands**: Reference [QUICK_REFERENCE.md](QUICK_REFERENCE.md)
-4. **TensorFlow Issues**: See [TensorFlow GPU Support Guide](https://www.tensorflow.org/install/gpu)
-5. **WSL2 Issues**: Check [WSL2 CUDA Guide](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
-6. **General Questions**: Open an issue on GitHub with:
+1. **Security Concerns**: Read [SECURITY.md](SECURITY.md) about known vulnerabilities
+2. **Setup Issues**: Check the [Troubleshooting section](SETUP.md#troubleshooting) in SETUP.md
+3. **Common Questions**: See [FAQ.md](FAQ.md) for answers
+4. **Quick Commands**: Reference [QUICK_REFERENCE.md](QUICK_REFERENCE.md)
+5. **TensorFlow Issues**: See [TensorFlow GPU Support Guide](https://www.tensorflow.org/install/gpu)
+6. **WSL2 Issues**: Check [WSL2 CUDA Guide](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
+7. **General Questions**: Open an issue on GitHub with:
    - Your OS and GPU details
    - Output of `verify_installation.py`
    - Error messages and steps to reproduce
 
 ## ⚠️ Important Notes
 
+- **🔒 SECURITY WARNING**: The pinned versions (TensorFlow 2.3.1, OpenCV 4.4.0.46) contain known vulnerabilities. See [SECURITY.md](SECURITY.md) for details and mitigation strategies.
 - **WSL2 Users**: Do NOT install CUDA inside WSL2 manually - follow the SETUP.md guide
 - **Windows Users**: Install NVIDIA drivers on Windows, not inside WSL2
 - **Virtual Environments**: Always use virtual environments to avoid package conflicts
 - **GPU Memory**: Monitor GPU usage with `nvidia-smi -l 1` to prevent out-of-memory errors
+- **Use Case**: These vulnerable versions are acceptable ONLY for isolated educational use. For production, upgrade to TensorFlow 2.12.1+ and OpenCV 4.8.1.78+
 
 ## 🤝 Contributing
 

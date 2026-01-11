@@ -6,6 +6,18 @@ This guide will walk you through setting up your development environment for rea
 
 ---
 
+## ⚠️ SECURITY NOTICE
+
+**The versions specified in this guide (TensorFlow 2.3.1, OpenCV 4.4.0.46) contain known security vulnerabilities.**
+
+- **For educational/tutorial use**: Follow this guide for compatibility with the existing tutorial
+- **For production use**: See [SECURITY.md](SECURITY.md) for secure versions (TensorFlow 2.12.1+, OpenCV 4.8.1.78+)
+- **Risk mitigation**: Use only in isolated environments (WSL2 provides sandboxing), never process untrusted input
+
+**Read [SECURITY.md](SECURITY.md) before proceeding to understand the risks and alternatives.**
+
+---
+
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [Cleaning Existing Installations](#cleaning-existing-installations)

@@ -1,9 +1,15 @@
 # Python dependencies for Real-Time Object Detection
 # For use with TensorFlow 2.3.1 and Python 3.7-3.8
 
-# Core dependencies
-tensorflow==2.3.1
-opencv-python==4.4.0.46
+# ⚠️ SECURITY WARNING ⚠️
+# These pinned versions contain known vulnerabilities (150+ CVEs)
+# Suitable ONLY for educational use in isolated environments
+# For production, use: tensorflow>=2.12.1 and opencv-python>=4.8.1.78
+# See SECURITY.md for details
+
+# Core dependencies (VULNERABLE VERSIONS - Educational Use Only)
+tensorflow==2.3.1           # Contains 150+ known CVEs - see SECURITY.md
+opencv-python==4.4.0.46     # Contains CVE-2023-4863 - see SECURITY.md
 numpy>=1.19.0,<1.20.0
 matplotlib>=3.3.0
 pillow>=8.0.0
@@ -23,3 +29,11 @@ ipython>=7.16.0
 # Optional but recommended
 # pandas>=1.1.0  # For data manipulation
 # scikit-learn>=0.23.0  # For additional ML utilities
+
+# SECURE ALTERNATIVE (For Production Use):
+# Uncomment these and comment out the vulnerable versions above
+# tensorflow>=2.12.1
+# opencv-python>=4.8.1.78
+# numpy>=1.23.0
+# Note: Requires Python 3.8-3.11, CUDA 11.8+, cuDNN 8.6+
+

@@ -1,5 +1,54 @@
 # Frequently Asked Questions (FAQ)
 
+## ⚠️ Security Questions
+
+### Q: Are the pinned versions (TensorFlow 2.3.1, OpenCV 4.4.0.46) safe to use?
+**A:** **NO** for production use. These versions contain **150+ known security vulnerabilities**. 
+
+**Safe for:**
+- Educational/learning purposes in isolated environments
+- Following specific tutorials that require these versions
+- Local experimentation without sensitive data
+
+**NOT safe for:**
+- Production applications
+- Processing untrusted input
+- Network-exposed services
+- Sensitive data handling
+
+**See [SECURITY.md](SECURITY.md) for full details and secure alternatives.**
+
+### Q: Should I upgrade to newer versions?
+**A:** **YES** for any real-world use:
+- **Secure versions**: TensorFlow 2.12.1+, OpenCV 4.8.1.78+
+- **Requirements**: Python 3.8-3.11, CUDA 11.8+, cuDNN 8.6+
+- **Benefits**: All security patches, better performance, active support
+
+**NO** if you're specifically following this tutorial for learning and using isolated environments.
+
+### Q: What vulnerabilities exist?
+**A:** TensorFlow 2.3.1 has 150+ CVEs including:
+- Code injection vulnerabilities
+- Heap buffer overflows
+- NULL pointer dereferences
+- Integer overflows
+
+OpenCV 4.4.0.46 has:
+- CVE-2023-4863: libwebp vulnerability
+
+**Full list in [SECURITY.md](SECURITY.md)**
+
+### Q: How do I use these versions safely?
+**A:** Follow these precautions:
+1. Use ONLY in isolated environments (WSL2, VM, container)
+2. Never process untrusted input or user uploads
+3. Don't expose to network
+4. Don't process sensitive data
+5. Don't run with elevated privileges
+6. Use for learning/education only
+
+---
+
 ## General Questions
 
 ### Q: Do I need a GPU to run this project?

@@ -2,6 +2,35 @@
 
 Welcome! This guide will help you get started with Real-Time Object Detection step by step.
 
+## ⚠️ IMPORTANT: Security Notice
+
+**Before you begin, please be aware:**
+
+This project uses **TensorFlow 2.3.1** and **OpenCV 4.4.0.46**, which contain **150+ known security vulnerabilities**.
+
+### Should I continue?
+
+**✅ YES, if you are:**
+- Learning object detection for educational purposes
+- Following tutorials that require these specific versions  
+- Using an isolated environment (WSL2 provides sandboxing)
+- NOT processing untrusted or sensitive data
+- NOT deploying to production
+
+**❌ NO, if you are:**
+- Building production applications
+- Processing user-uploaded content
+- Handling sensitive data
+- Deploying to network-accessible systems
+
+**📖 Read [SECURITY.md](SECURITY.md) first** to understand:
+- What vulnerabilities exist
+- How to use safely for learning
+- How to upgrade to secure versions (TensorFlow 2.12.1+)
+- Migration guide for production use
+
+---
+
 ## 📖 First Time Here?
 
 If you're new to this project, **START HERE** and follow these steps in order:
