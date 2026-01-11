@@ -109,6 +109,8 @@ python3 -m pip install --upgrade pip
 
 **Note**: WSL2 uses a special version of CUDA. Do NOT use the Windows CUDA installer!
 
+**Security Note**: For production environments, verify package checksums from NVIDIA's official documentation before installation.
+
 ```bash
 # Download and install CUDA 11.2 for WSL-Ubuntu
 wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin

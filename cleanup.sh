@@ -43,7 +43,7 @@ echo "✅ OpenCV removed"
 echo "🧹 Removing CUDA packages..."
 echo "⚠️  This will remove packages matching CUDA patterns..."
 echo "Showing some packages that will be removed:"
-apt list --installed 2>/dev/null | grep -E "cuda|cublas|cufft|nvidia" | head -20
+dpkg -l | grep -E "cuda|cublas|cufft|nvidia" | awk '{print $2}' | head -20
 echo ""
 echo "Note: There may be more packages than shown above."
 read -p "Proceed with CUDA package removal? (yes/no): " confirm_cuda

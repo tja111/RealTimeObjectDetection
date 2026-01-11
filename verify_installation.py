@@ -168,7 +168,8 @@ def check_required_packages():
     all_ok = True
     for name, import_name in packages.items():
         try:
-            module = __import__(import_name)
+            import importlib
+            module = importlib.import_module(import_name)
             version = getattr(module, '__version__', 'unknown')
             print_status(f"{name}", True, f"v{version}")
         except ImportError:
