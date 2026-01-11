@@ -1,0 +1,123 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv
+tf_object_detection/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# TensorFlow / Model Training
+*.h5
+*.pb
+saved_model/
+checkpoint
+*.ckpt
+*.ckpt.*
+*.data-*
+*.index
+*.meta
+events.out.tfevents.*
+graph.pbtxt
+
+# TensorFlow workspace artifacts
+Tensorflow/workspace/models/*/checkpoint/
+Tensorflow/workspace/models/*/export/
+Tensorflow/workspace/models/*/eval/
+Tensorflow/workspace/models/*/train/
+Tensorflow/workspace/models/*/*.pb
+Tensorflow/workspace/annotations/*.record
+Tensorflow/workspace/annotations/*.tfrecord
+
+# Downloaded models
+Tensorflow/workspace/pre-trained-models/*.tar.gz
+Tensorflow/workspace/pre-trained-models/*/
+
+# Images and datasets (uncomment if you don't want to track images)
+# Tensorflow/workspace/images/train/*.jpg
+# Tensorflow/workspace/images/train/*.png
+# Tensorflow/workspace/images/test/*.jpg
+# Tensorflow/workspace/images/test/*.png
+# Tensorflow/workspace/images/train/*.xml
+# Tensorflow/workspace/images/test/*.xml
+
+# TensorBoard logs
+runs/
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+
+# Test outputs
+test_output/
+output/
+results/
+
+# CUDA compilation files
+*.o
+*.cubin
+*.fatbin
+
+# Package files
+*.tar.gz
+*.zip
+*.7z
+
+# Backup files
+*.bashrc.backup
+cleanup_log.txt
+
+# Model Zoo downloads
+models/
+!Tensorflow/models/  # Keep our local models directory
+
+# Protoc downloads
+protoc3/
+protoc-*.zip
