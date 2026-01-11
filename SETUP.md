@@ -120,15 +120,20 @@ source ~/.bashrc
 # Go to: https://developer.nvidia.com/rdp/cudnn-archive
 # Download: cuDNN v8.1.0 for CUDA 11.2
 
-# After downloading, copy the file to WSL2 (assuming it's in your Downloads folder):
+# After downloading, copy the file to WSL2 from your Windows Downloads folder:
 # From WSL2 terminal:
 cd ~
-# Replace YOUR_USERNAME with your actual Windows username
-# You can also use: echo $USER to see your WSL username
+
+# OPTION 1: If you know your Windows username (recommended)
+# Replace YOUR_USERNAME with your actual Windows username (e.g., JohnDoe)
 cp /mnt/c/Users/YOUR_USERNAME/Downloads/cudnn-11.2-linux-x64-v8.1.0.77.tgz .
 
-# If you're unsure of your username, list the Users directory:
+# OPTION 2: Find your Windows username first
 # ls /mnt/c/Users/
+# Then copy the file from the correct path
+
+# OPTION 3: Download directly to WSL2 home directory if you moved it there
+# (You can drag and drop to \\wsl$\Ubuntu\home\yourusername\ in Windows Explorer)
 
 # Extract and install
 tar -xzvf cudnn-11.2-linux-x64-v8.1.0.77.tgz
