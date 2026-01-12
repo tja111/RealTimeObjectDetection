@@ -92,23 +92,45 @@ sudo apt upgrade -y
 sudo apt install -y build-essential
 ```
 
-### Step 2: Install Python 3.8 or 3.9
+### Step 2: Install Python (3.9 or 3.10 Recommended)
 
-For TensorFlow 2.3.1, Python 3.7-3.8 is recommended. However, for better compatibility with modern packages, we'll use Python 3.8:
+**For TensorFlow 2.12.1+ (secure version):** Python 3.8-3.11 is supported. **We recommend Python 3.9 or 3.10** as they're more readily available in Ubuntu repositories.
 
 ```bash
 # Check current Python version
 python3 --version
 
-# If you need Python 3.8, install it:
+# Option 1: Use existing Python (if 3.8-3.11)
+# If your system already has Python 3.9, 3.10, or 3.11, you can use it directly!
+# Skip to "Upgrade pip" below
+
+# Option 2: Install Python 3.10 (RECOMMENDED - readily available)
+sudo apt install -y python3.10 python3.10-venv python3.10-dev python3-pip
+
+# Set Python 3.10 as default (optional)
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+
+# Option 3: Install Python 3.9 (also readily available)
+sudo apt install -y python3.9 python3.9-venv python3.9-dev python3-pip
+
+# Set Python 3.9 as default (optional)
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+
+# Option 4: Install Python 3.8 (requires additional PPA)
+# Only if you specifically need Python 3.8
+sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt update
 sudo apt install -y python3.8 python3.8-venv python3.8-dev python3-pip
 
 # Set Python 3.8 as default (optional)
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
 
-# Upgrade pip
+# Upgrade pip (do this after installing your chosen Python version)
 python3 -m pip install --upgrade pip
 ```
+
+**Note:** Python 3.9 or 3.10 is recommended because they're available in standard Ubuntu repositories and work perfectly with TensorFlow 2.12.1.
 
 ### Step 3: Install CUDA Toolkit 11.2 for WSL2
 
@@ -336,16 +358,18 @@ If you prefer using Anaconda/Miniconda (which many find easier for managing Pyth
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 
-# Create environment with Python 3.8
-conda create -n tf_obj_detect python=3.8
+# Create environment with Python 3.10 (recommended)
+conda create -n tf_obj_detect python=3.10
+
+# OR use Python 3.9
+# conda create -n tf_obj_detect python=3.9
 
 # Activate environment
 conda activate tf_obj_detect
 
-# Install packages
-pip install tensorflow==2.3.1
-pip install opencv-python==4.4.0.46
-pip install numpy matplotlib pillow lxml jupyter pycocotools
+# Install packages from requirements.txt (secure versions)
+cd ~/RealTimeObjectDetection
+pip install -r requirements.txt
 
 # Then continue with CUDA, cuDNN, and Object Detection API installation as above
 ```
@@ -356,10 +380,15 @@ pip install numpy matplotlib pillow lxml jupyter pycocotools
 
 1. **WSL2 vs Windows**: This guide is for WSL2 Ubuntu. If you want to use native Windows, the CUDA/cuDNN installation steps will be different.
 
-2. **Version Compatibility**: TensorFlow 2.3.1 requires:
-   - CUDA 10.1 or 11.2
-   - cuDNN 7.6 or 8.1
-   - Python 3.5-3.8
+2. **Version Compatibility**: 
+   - **TensorFlow 2.12.1+ (secure)** requires:
+     - Python 3.8-3.11 (3.9 or 3.10 recommended)
+     - CUDA 11.8
+     - cuDNN 8.6
+   - **TensorFlow 2.3.1 (legacy)** requires:
+     - CUDA 10.1 or 11.2
+     - cuDNN 7.6 or 8.1
+     - Python 3.5-3.8
 
 3. **Virtual Environments**: Always use virtual environments (venv or conda) to avoid conflicts between projects.
 
